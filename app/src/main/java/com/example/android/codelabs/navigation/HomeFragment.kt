@@ -49,10 +49,11 @@ class HomeFragment : Fragment() {
             }
         }
 
-        view.findViewById<Button>(R.id.navigate_destination_button)?.apply {
-            setOnClickListener {
-                findNavController().navigate(R.id.flow_step_one_dest, null, options)
-            }
+        view.findViewById<Button>(R.id.navigate_destination_button)?.setOnClickListener {
+            val flowStepNumberArg = 1
+            val action = HomeFragmentDirections.nextAction(flowStepNumberArg)
+
+            findNavController().navigate(action)
         }
 
         view.findViewById<Button>(R.id.navigate_action_button)?.setOnClickListener(
